@@ -1,17 +1,9 @@
-<%
-  name = @user_profile.parsed_response['name']
-  username = @user_profile.parsed_response['login']
-
-
-%>
-
-
 <h1>GitHub</h1>
-<div><%=image_tag(@user_profile.parsed_response['avatar_url']) %></div>
-<h1><%=name%></h1>
-<h3><%=username%></h3>
+<img><%=image_tag(@user_profile.parsed_response['avatar_url']) %></img>
+<h1><%=@name%></h1>
+<h3><%=@username%></h3>
 <% @repos.each do |repo| %>
   <p><%= repo['name']%></p>
+  <p><%= repo['language']%></p>
+  <hr>
 <%end%>
-<div><%= @user_profile %></div>
-
